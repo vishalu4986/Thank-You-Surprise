@@ -1,0 +1,412 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+.wrap{width:100%;overflow:hidden;font-family:'Lato',sans-serif;}
+.slide{display:none;width:100%;min-height:540px;position:relative;overflow:hidden;padding:40px 36px 36px;}
+.slide.active{display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.bg-layer{position:absolute;inset:0;z-index:0;}
+.content{position:relative;z-index:2;text-align:center;width:100%;}
+.s-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;opacity:0.7;}
+.s-title{font-family:'Playfair Display',serif;font-size:27px;font-weight:600;line-height:1.3;margin-bottom:16px;}
+.s-body{font-size:15px;line-height:1.85;max-width:480px;margin:0 auto 26px;font-weight:300;}
+.btn-main{display:inline-block;padding:12px 34px;border-radius:50px;font-size:14px;cursor:pointer;border:none;font-family:'Lato',sans-serif;letter-spacing:1px;transition:transform .18s,opacity .18s;}
+.btn-main:hover{transform:scale(1.04);opacity:.92;}
+.btn-nav{display:inline-block;padding:10px 28px;border-radius:50px;font-size:13px;cursor:pointer;border:1.5px solid;font-family:'Lato',sans-serif;letter-spacing:1px;transition:all .18s;background:transparent;margin-top:6px;}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:20px;}
+.dot{width:8px;height:8px;border-radius:50%;cursor:pointer;transition:all .2s;}
+.petal{position:absolute;width:9px;height:15px;border-radius:50% 50% 50% 0;animation:petfall linear infinite;pointer-events:none;z-index:1;}
+@keyframes petfall{0%{transform:translateY(-20px) rotate(0deg);opacity:.9;}100%{transform:translateY(600px) rotate(400deg);opacity:0;}}
+.star-dot{position:absolute;border-radius:50%;animation:twinkle ease-in-out infinite;pointer-events:none;z-index:1;}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.8);}50%{opacity:.9;transform:scale(1.1);}}
+.confetti-p{position:absolute;width:8px;height:8px;border-radius:2px;animation:cfall linear forwards;pointer-events:none;z-index:20;}
+@keyframes cfall{0%{transform:translateY(0) rotate(0deg);opacity:1;}100%{transform:translateY(420px) rotate(720deg);opacity:0;}}
+.float-h{position:absolute;font-size:22px;animation:fheart linear forwards;pointer-events:none;z-index:15;opacity:0;}
+@keyframes fheart{0%{transform:translateY(0) scale(.8);opacity:0;}15%{opacity:.9;}85%{opacity:.5;}100%{transform:translateY(-280px) scale(1.3);opacity:0;}}
+.ty-wrap{display:none;flex-direction:column;align-items:center;gap:16px;animation:popin .6s cubic-bezier(.4,1.6,.6,1) both;}
+@keyframes popin{0%{transform:scale(.3);opacity:0;}100%{transform:scale(1);opacity:1;}}
+.ty-text{font-family:'Playfair Display',serif;font-size:32px;font-weight:600;color:#e75480;}
+.ty-img{width:130px;height:130px;border-radius:50%;object-fit:cover;border:4px solid #e75480;box-shadow:0 0 0 6px rgba(231,84,128,.18);}
+</style>
+
+<h2 style="position:absolute;left:-9999px;">Romantic surprise slides for Harshi from Vishal</h2>
+<div class="wrap" id="app">
+
+<div class="slide active" id="slide1">
+  <div class="bg-layer" id="bg1"></div>
+  <div class="content">
+    <div class="s-tag" style="color:#c9395f;">for harshi</div>
+    <div class="s-title" style="color:#3d0c18;">Hey...<br>I have something to say.</div>
+    <div class="s-body" style="color:#5a1e2e;">Tap the button below to open your little thank-you surprise.</div>
+    <button class="btn-main" style="background:#e75480;color:#fff;" onclick="goTo(2)">Open your surprise</button>
+    <div class="dots" id="dots1"></div>
+  </div>
+</div>
+
+<div class="slide" id="slide2">
+  <div class="bg-layer" id="bg2"></div>
+  <div class="content">
+    <div class="s-tag" style="color:#b03060;">a day i won't forget</div>
+    <div class="s-title" style="color:#3d0c18;">The time we spent together</div>
+    <div class="s-body" style="color:#5a1e2e;">Today flew by way too fast. Never imagined you would become my closest friend. Every minute with you felt easy, warm, and honestly — magical. I didn't want it to end.</div>
+    <button class="btn-nav" style="color:#c9395f;border-color:#c9395f;" onclick="goTo(3)">Next</button>
+    <div class="dots" id="dots2"></div>
+  </div>
+</div>
+
+<div class="slide" id="slide3">
+  <div class="bg-layer" id="bg3"></div>
+  <div class="content">
+    <div class="s-tag" style="color:#8b2252;">you're one of a kind</div>
+    <div class="s-title" style="color:#3d0c18;">You made me feel special</div>
+    <div class="s-body" style="color:#5a1e2e;">The way you laugh — alag alag animals ki awaaz mein — the way you listen, the way you talk — it's rare. Very, very, very difficult to spend a day in the office without you. Being around you makes me want to achieve bigger and bigger. It just feels different. In the best possible way.</div>
+    <button class="btn-nav" style="color:#c9395f;border-color:#c9395f;" onclick="goTo(4)">Next</button>
+    <div class="dots" id="dots3"></div>
+  </div>
+</div>
+
+<div class="slide" id="slide4">
+  <div class="bg-layer" id="bg4"></div>
+  <div class="content">
+    <div class="s-tag" style="color:#8b2252;">until next time</div>
+    <div class="s-title" style="color:#3d0c18;">Already looking forward<br>to next time</div>
+    <div class="s-body" style="color:#5a1e2e;">I'm not ready to stop here. I'd love to do this again — maybe somewhere with better coffee and an even better excuse to spend more time with you.</div>
+    <button class="btn-main" style="background:#e75480;color:#fff;" onclick="goTo(5)">One last thing...</button>
+    <div class="dots" id="dots4"></div>
+  </div>
+</div>
+
+<div class="slide" id="slide5">
+  <div class="bg-layer" id="bg5"></div>
+  <div class="content">
+    <div class="s-tag" style="color:#8b2252;" id="s5tag">pop the balloon</div>
+    <div class="s-title" style="color:#3d0c18;" id="s5title">Pull back the bow &amp; release!</div>
+    <div style="position:relative;width:100%;height:380px;display:flex;align-items:center;justify-content:center;" id="game-area">
+      <canvas id="gc" width="640" height="360" style="max-width:100%;cursor:crosshair;touch-action:none;"></canvas>
+    </div>
+    <div class="ty-wrap" id="ty-wrap">
+      <div class="ty-text">Thank You ♥</div>
+      <img class="ty-img" id="harshi-img" src="" alt="Harshi"/>
+      <div style="font-family:'Playfair Display',serif;font-size:16px;color:#c9395f;font-style:italic;">— with love, Vishal</div>
+    </div>
+    <div class="dots" id="dots5" style="margin-top:14px;"></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+const TOTAL=5;
+let cur=1;
+
+function makeBg(id){
+  const el=document.getElementById('bg'+id);
+  if(!el)return;
+  el.style.background=['#ffe0ee','#ffd6e7','#fff0f3','#fce4ec','#fff0f3'][id-1];
+  const pc=['#e75480','#f4a7b9','#ffb6c1','#ff8fab','#ffc8dd'];
+  for(let i=0;i<20;i++){
+    const p=document.createElement('div');p.className='petal';
+    p.style.cssText=`left:${Math.random()*100}%;background:${pc[i%5]};animation-duration:${3+Math.random()*4}s;animation-delay:${Math.random()*5}s;`;
+    el.appendChild(p);
+  }
+  for(let i=0;i<12;i++){
+    const s=document.createElement('div');s.className='star-dot';
+    const sz=2+Math.random()*4;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;background:${pc[i%5]};animation-duration:${1.5+Math.random()*2.5}s;animation-delay:${Math.random()*3}s;`;
+    el.appendChild(s);
+  }
+}
+
+function makeDots(n){
+  const el=document.getElementById('dots'+n);if(!el)return;el.innerHTML='';
+  for(let i=1;i<=TOTAL;i++){
+    const d=document.createElement('div');d.className='dot';
+    d.style.cssText=`background:${i===n?'#e75480':'rgba(231,84,128,.25)'};width:${i===n?'22px':'8px'};border-radius:${i===n?'4px':'50%'};`;
+    d.onclick=()=>goTo(i);el.appendChild(d);
+  }
+}
+
+function goTo(n){
+  document.getElementById('slide'+cur).classList.remove('active');
+  cur=n;
+  document.getElementById('slide'+cur).classList.add('active');
+  makeDots(cur);
+  if(cur===5)setTimeout(initGame,100);
+}
+
+for(let i=1;i<=TOTAL;i++){makeBg(i);makeDots(i);}
+
+const IMG_PATH='/mnt/user-data/uploads/1781958480495_image.png';
+
+function loadHarshiImg(){
+  return new Promise(resolve=>{
+    const img=new Image();
+    img.onload=()=>resolve(img);
+    img.onerror=()=>resolve(null);
+    img.src=IMG_PATH;
+  });
+}
+
+let gameInited=false;
+let popped=false;
+
+async function initGame(){
+  if(gameInited)return;
+  gameInited=true;
+  popped=false;
+
+  const harshiImg=await loadHarshiImg();
+  const canvas=document.getElementById('gc');
+  const ctx=canvas.getContext('2d');
+  const W=640,H=360;
+
+  const BOW_X=90, BOW_Y=180;
+  const BALLOON_X=480, BALLOON_Y=130;
+  const BALLOON_R=62;
+
+  let pulling=false;
+  let pullX=BOW_X, pullY=BOW_Y;
+  let arrowFlying=false;
+  let arrowX=BOW_X,arrowY=BOW_Y,arrowVX=0,arrowVY=0;
+  let exploding=false, explodeFrame=0;
+  let animId=null;
+
+  function drawScene(){
+    ctx.clearRect(0,0,W,H);
+    if(!popped){
+      drawBalloon(ctx,BALLOON_X,BALLOON_Y,BALLOON_R,pulling?Math.min(1,(Math.hypot(pullX-BOW_X,pullY-BOW_Y)/60)):0);
+    }
+    drawBow(ctx,BOW_X,BOW_Y,pulling,pullX,pullY);
+    if(arrowFlying&&!exploding){
+      drawArrow(ctx,arrowX,arrowY,arrowVX,arrowVY);
+    }
+    if(exploding){
+      drawExplode(ctx,BALLOON_X,BALLOON_Y,explodeFrame);
+    }
+  }
+
+  function drawBalloon(ctx,cx,cy,r,stretch){
+    const scale=1+stretch*0.08;
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.scale(scale,scale);
+    ctx.beginPath();
+    ctx.ellipse(0,0,r,r*1.15,0,0,Math.PI*2);
+    ctx.fillStyle='#e75480';
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(-r*0.25,-r*0.3,r*0.2,r*0.13,-0.4,0,Math.PI*2);
+    ctx.fillStyle='rgba(255,255,255,0.3)';
+    ctx.fill();
+    ctx.font=`bold ${r*0.7}px serif`;
+    ctx.fillStyle='rgba(255,255,255,0.9)';
+    ctx.textAlign='center';
+    ctx.textBaseline='middle';
+    ctx.fillText('♥',0,0);
+    ctx.restore();
+    ctx.beginPath();
+    ctx.moveTo(cx,cy+r*1.15);
+    ctx.lineTo(cx,cy+r*1.15+18);
+    ctx.strokeStyle='#c9395f';ctx.lineWidth=2;ctx.stroke();
+    drawBow2D(ctx,cx,cy+r*1.15+18);
+  }
+
+  function drawBow2D(cx,cy){
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.beginPath();
+    ctx.ellipse(-18,0,14,8,0,0,Math.PI*2);
+    ctx.fillStyle='#e75480';ctx.globalAlpha=0.85;ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(18,0,14,8,0,0,Math.PI*2);
+    ctx.fillStyle='#e75480';ctx.fill();
+    ctx.beginPath();
+    ctx.arc(0,0,6,0,Math.PI*2);
+    ctx.fillStyle='#c9395f';ctx.globalAlpha=1;ctx.fill();
+    ctx.restore();
+  }
+
+  function drawBow(ctx,bx,by,pulling,px,py){
+    const bowH=110;
+    ctx.save();
+    ctx.translate(bx,by);
+    ctx.beginPath();
+    ctx.moveTo(0,-bowH/2);
+    ctx.quadraticCurveTo(-38,0,0,bowH/2);
+    ctx.strokeStyle='#7b3f00';ctx.lineWidth=5;ctx.lineCap='round';ctx.stroke();
+    ctx.beginPath();
+    if(pulling){
+      const lx=px-bx,ly=py-by;
+      ctx.moveTo(0,-bowH/2);
+      ctx.lineTo(lx,ly);
+      ctx.lineTo(0,bowH/2);
+    } else {
+      ctx.moveTo(0,-bowH/2);
+      ctx.lineTo(12,0);
+      ctx.lineTo(0,bowH/2);
+    }
+    ctx.strokeStyle='#c9395f';ctx.lineWidth=2.5;ctx.stroke();
+    if(pulling){
+      const lx=px-bx,ly=py-by;
+      ctx.beginPath();
+      ctx.arc(lx,ly,5,0,Math.PI*2);
+      ctx.fillStyle='#888';ctx.fill();
+      drawArrow(ctx,bx+lx,by+ly,-(lx)*0.1,-(ly)*0.1);
+    } else {
+      ctx.beginPath();
+      ctx.arc(12,0,5,0,Math.PI*2);
+      ctx.fillStyle='#888';ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  function drawArrow(ctx,x,y,vx,vy){
+    const angle=Math.atan2(vy,vx);
+    ctx.save();
+    ctx.translate(x,y);
+    ctx.rotate(angle);
+    ctx.beginPath();
+    ctx.moveTo(-22,0);ctx.lineTo(18,0);
+    ctx.strokeStyle='#7b3f00';ctx.lineWidth=3;ctx.lineCap='round';ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(18,0);ctx.lineTo(8,-5);ctx.lineTo(8,5);ctx.closePath();
+    ctx.fillStyle='#555';ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(-22,0);ctx.lineTo(-14,-5);ctx.lineTo(-14,5);ctx.closePath();
+    ctx.fillStyle='#e75480';ctx.fill();
+    ctx.restore();
+  }
+
+  function drawExplode(ctx,cx,cy,frame){
+    const colors=['#e75480','#f4a7b9','#ffb6c1','#ff69b4','#ffc0cb','#fff'];
+    const n=16;
+    for(let i=0;i<n;i++){
+      const ang=(i/n)*Math.PI*2;
+      const r=frame*12;
+      const x=cx+Math.cos(ang)*r,y=cy+Math.sin(ang)*r;
+      const alpha=Math.max(0,1-frame/18);
+      ctx.save();
+      ctx.globalAlpha=alpha;
+      ctx.beginPath();
+      ctx.arc(x,y,Math.max(1,5-frame*0.25),0,Math.PI*2);
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function startArrow(px,py){
+    const dx=BOW_X-px, dy=BOW_Y-py;
+    const spd=Math.min(22,Math.max(12,Math.hypot(dx,dy)*0.32));
+    const ang=Math.atan2(dy,dx);
+    arrowX=px;arrowY=py;
+    arrowVX=Math.cos(ang)*spd;
+    arrowVY=Math.sin(ang)*spd;
+    arrowFlying=true;pulling=false;
+  }
+
+  function gameLoop(){
+    if(arrowFlying&&!exploding&&!popped){
+      arrowX+=arrowVX;arrowY+=arrowVY;
+      const dist=Math.hypot(arrowX-BALLOON_X,arrowY-BALLOON_Y);
+      if(dist<BALLOON_R+10){
+        arrowFlying=false;exploding=true;explodeFrame=0;
+        spawnConfetti();
+      }
+      if(arrowX>W+40||arrowY<-40||arrowY>H+40){arrowFlying=false;}
+    }
+    if(exploding){
+      explodeFrame++;
+      if(explodeFrame>22){exploding=false;popped=true;showThanks(harshiImg);}
+    }
+    drawScene();
+    if(!popped)animId=requestAnimationFrame(gameLoop);
+  }
+
+  function getCanvasPos(e){
+    const rect=canvas.getBoundingClientRect();
+    const scX=W/rect.width,scY=H/rect.height;
+    if(e.touches)return{x:(e.touches[0].clientX-rect.left)*scX,y:(e.touches[0].clientY-rect.top)*scY};
+    return{x:(e.clientX-rect.left)*scX,y:(e.clientY-rect.top)*scY};
+  }
+
+  canvas.addEventListener('mousedown',e=>{
+    if(popped)return;e.preventDefault();
+    const pos=getCanvasPos(e);
+    const d=Math.hypot(pos.x-BOW_X,pos.y-BOW_Y);
+    if(d<80){pulling=true;pullX=pos.x;pullY=pos.y;}
+  });
+  canvas.addEventListener('mousemove',e=>{
+    if(!pulling||popped)return;e.preventDefault();
+    const pos=getCanvasPos(e);pullX=pos.x;pullY=pos.y;
+  });
+  canvas.addEventListener('mouseup',e=>{
+    if(!pulling||popped)return;e.preventDefault();
+    const pos=getCanvasPos(e);
+    const d=Math.hypot(pos.x-BOW_X,pos.y-BOW_Y);
+    if(d>18)startArrow(pos.x,pos.y);
+    else pulling=false;
+  });
+  canvas.addEventListener('touchstart',e=>{
+    if(popped)return;e.preventDefault();
+    const pos=getCanvasPos(e);
+    const d=Math.hypot(pos.x-BOW_X,pos.y-BOW_Y);
+    if(d<90){pulling=true;pullX=pos.x;pullY=pos.y;}
+  },{passive:false});
+  canvas.addEventListener('touchmove',e=>{
+    if(!pulling||popped)return;e.preventDefault();
+    const pos=getCanvasPos(e);pullX=pos.x;pullY=pos.y;
+  },{passive:false});
+  canvas.addEventListener('touchend',e=>{
+    if(!pulling||popped)return;e.preventDefault();
+    if(Math.hypot(pullX-BOW_X,pullY-BOW_Y)>18)startArrow(pullX,pullY);
+    else pulling=false;
+  },{passive:false});
+
+  animId=requestAnimationFrame(gameLoop);
+}
+
+function showThanks(harshiImg){
+  document.getElementById('gc').style.display='none';
+  document.getElementById('s5tag').style.display='none';
+  document.getElementById('s5title').style.display='none';
+  const tw=document.getElementById('ty-wrap');
+  tw.style.display='flex';
+
+  if(harshiImg){
+    const offscreen=document.createElement('canvas');
+    const s=Math.min(harshiImg.naturalWidth,harshiImg.naturalHeight);
+    offscreen.width=s;offscreen.height=s;
+    const octx=offscreen.getContext('2d');
+    octx.beginPath();octx.arc(s/2,s/2,s/2,0,Math.PI*2);octx.clip();
+    octx.drawImage(harshiImg,(harshiImg.naturalWidth-s)/2,(harshiImg.naturalHeight-s)/2,s,s,0,0,s,s);
+    document.getElementById('harshi-img').src=offscreen.toDataURL('image/jpeg',0.9);
+  } else {
+    document.getElementById('harshi-img').style.display='none';
+  }
+  spawnFloatingHearts();
+}
+
+function spawnConfetti(){
+  const wrap=document.getElementById('slide5');
+  const colors=['#e75480','#f4a7b9','#ffb6c1','#ff69b4','#c9395f','#fff','#ffd6e7'];
+  for(let i=0;i<52;i++){
+    const c=document.createElement('div');c.className='confetti-p';
+    c.style.cssText=`left:${20+Math.random()*60}%;top:20%;background:${colors[i%colors.length]};animation-duration:${0.9+Math.random()*1.4}s;animation-delay:${Math.random()*0.4}s;transform:rotate(${Math.random()*360}deg);`;
+    wrap.appendChild(c);setTimeout(()=>c.remove(),3200);
+  }
+}
+
+function spawnFloatingHearts(){
+  const slide=document.getElementById('slide5');
+  const syms=['♥','♡','❤'];
+  for(let i=0;i<12;i++){
+    setTimeout(()=>{
+      const h=document.createElement('div');h.className='float-h';
+      h.textContent=syms[i%3];
+      h.style.cssText=`left:${10+Math.random()*80}%;bottom:100px;color:${'#e75480,#f4a7b9,#c9395f'.split(',')[i%3]};animation-duration:${1.8+Math.random()*1.2}s;`;
+      slide.appendChild(h);setTimeout(()=>h.remove(),3500);
+    },i*180);
+  }
+}
+</script>
